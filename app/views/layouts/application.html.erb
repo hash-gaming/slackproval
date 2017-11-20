@@ -22,11 +22,9 @@
           <% if current_user %>
             <div class="btn-group" role="group" aria-label="Basic example">
               <%= link_to requests_path, class: "btn btn-outline-success" do %>
-              Requests <span class="badge badge-light"><%= Request.new_items.count if Request.new_items.any? %></span>
+                Requests <span class="badge badge-light"><%= Request.new_items.count if Request.new_items.any? %></span>
               <% end %>
-              <% if current_user.admin? %>
-                <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-info" %>
-              <% end %>
+              <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-info" %>
               <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-secondary" %>
             </div>
           <% else %>
