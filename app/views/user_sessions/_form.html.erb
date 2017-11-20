@@ -1,0 +1,11 @@
+<%= form_tag user_sessions_path, :method => :post do %>
+  <div class="form-group">
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, '', class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password, '', class: "form-control" %>
+  </div>
+  <%= submit_tag "Login", class: "btn btn-primary" %>
+<% end %>

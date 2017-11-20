@@ -1,10 +1,19 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_request, only: [:show, :edit, :update, :destroy, :approve, :deny]
+  before_action :authentication_check, only: [:index, :update, :edit, :destroy, :approve, :deny, :approved, :denied]
 
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.all
+    @requests = Request.new_items
+  end
+
+  def approved
+    @requests = Request.approved
+  end
+
+  def denied
+    @requests = Request.denied
   end
 
   # GET /requests/1
@@ -58,6 +67,20 @@ class RequestsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def approve
+    @request.update approved: true, denied: false
+    redirect_to requests_url
+  end
+
+  def deny
+    if @request.approved
+      redirect_to requests_url, notice: 'Approved request cannot be denied.'
+    else
+      @request.update denied: true, approved: false
+      redirect_to requests_url
     end
   end
 
