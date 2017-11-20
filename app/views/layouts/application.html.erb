@@ -1,6 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
     <title>Slackproval</title>
     <%= csrf_meta_tags %>
 
@@ -9,6 +15,20 @@
   </head>
 
   <body>
+    <div class="navbar navbar-inverse bg-inverse">
+      <div class="container d-flex justify-content-between">
+        <%= link_to ENV["SLACK_NAME"], root_path, class: "navbar-brand" %>
+        <form class="form-inline my-2 my-lg-0">
+          <%= link_to "Admin Login", "#", class: "btn btn-outline-secondary" %>
+        </form>
+      </div>
+    </div>
     <%= yield %>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p>Created with ♥ by <a href="http://hashtaggaming.herkokuapp.com"> Hashtag Gaming Slack </a></p>
+      </div>
+    </footer>
   </body>
 </html>

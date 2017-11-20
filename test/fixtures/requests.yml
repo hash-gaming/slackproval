@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  reason: MyText
+  approved: false
+  denied: false
+
+two:
+  email: MyString
+  reason: MyText
+  approved: false
+  denied: false

@@ -1,0 +1,13 @@
+<div class="centered">
+  <section class="text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading"><%= ENV["SLACK_NAME"] %></h1>
+      <p class="lead text-muted">
+        <%= image_tag ENV.fetch("SLACK_ICON", "") %>
+      </p>
+      <p>
+        <%= link_to "Register", new_request_path, class: "btn btn-primary" %>
+      </p>
+    </div>
+  </section>
+</div>

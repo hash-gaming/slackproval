@@ -1,0 +1,11 @@
+<div class="register_form">
+
+  <h1>Request</h1>
+  <p>
+    <a>Request access to the </a>
+    <%= ENV.fetch("SLACK_NAME", "") %>
+    <a>Slack!</a>
+  </p>
+
+  <%= render 'form', request: @request %>
+</div>
