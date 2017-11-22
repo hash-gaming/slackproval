@@ -35,9 +35,9 @@ Environment Variables:
 - Start approving users!
 ### Approval process
 - An end user will go through the requesting access process, and then the requests will show up in the "Requests" tab
-- A green checkmark means that the requesting user is approved and will receive a slack invite
-- A yellow X means that the requesting user is rejected (NOTE: rejected users cannot request access again with the same email)
-- A red trashcan means that the request is deleted, this allows the requesting user to request again with the same email
+- ![](https://i.imgur.com/UquEppG.png =25x25) means that the requesting user is approved and will receive a slack invite
+- ![](https://imgur.com/XJF8jAj.png) means that the requesting user is rejected (NOTE: rejected users cannot request access again with the same email)
+- ![](https://imgur.com/Hy9cTVK.png) means that the request is deleted, this allows the requesting user to request again with the same email
 - The `New` tab contains all requests that haven't received a response
 - The `Approved` tab contains all requests that have been approved
 - The `Denied` tab contains all requests that have been denied
