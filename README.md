@@ -1,6 +1,6 @@
 ![Slackproval](https://i.imgur.com/k78sOmi.png)
 
-The lightweight slack approved system for inviting people to an open slack community
+The lightweight slack approved system for managing invites to an open slack community
 
 ![](https://i.imgur.com/RPrOmu1.png)
 
