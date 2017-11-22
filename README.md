@@ -1,24 +1,51 @@
-# README
+![Slackproval](https://i.imgur.com/k78sOmi.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The lightweight slack approved system for inviting people to an open slack community
 
-Things you may want to cover:
+![](https://i.imgur.com/RPrOmu1.png)
 
-* Ruby version
+## What makes Slackproval different?
+Other slack auto-invite systems can cause issues by automatically allowing just anyone to join your open slack community. Slackproval is an open source solution that gives the admins of the community power to moderate their incoming new users.
 
-* System dependencies
+## Features
+- Approve or deny applicants instead of auto approval
+- Blacklist domains/emails/IPs from being able to request access
+- Required reason for joining
+- Customizable name and logo
+- Configurable Code of Conduct agreement
+- Anti bot measures
 
-* Configuration
+## How to set up
+### Requirements
+- Postgres
+- Ruby/Rails
+### Configuration
+Environment Variables:
+- `POSTGRES_DB_PASSWORD` (required) Set the password for the DB
+- `SLACK_NAME` Name of your slack
+- `SLACK_ICON` URL to your slack icon
+- `DEFAULT_ADMIN_EMAIL` (required) Email of the default admin, when they register they will automatically be given the admin role
+- `ADMIN_USERNAME` Username to get to the user sign up page (default `admin`)
+- `ADMIN_PASSWORD` (required) Password to get to the user sign up page
 
-* Database creation
+## How to use
+### First time launching
+- After launching the application on your choice hosting service, make sure you configure the application with the above environment variables.
+- Go to https://your_url_here/signup and enter the `ADMIN_USERNAME` and `ADMIN_PASSWORD` and sign up with your `DEFAULT_ADMIN_EMAIL`
+- Start approving users!
+### Approval process
+- An end user will go through the requesting access process, and then the requests will show up in the "Requests" tab
+- A green checkmark means that the requesting user is approved and will receive a slack invite
+- A yellow X means that the requesting user is rejected (NOTE: rejected users cannot request access again with the same email)
+- A red trashcan means that the request is deleted, this allows the requesting user to request again with the same email
+- The `New` tab contains all requests that haven't received a response
+- The `Approved` tab contains all requests that have been approved
+- The `Denied` tab contains all requests that have been denied
+### User management
+- `Admin` allows the user to show/edit/destroy any user on Slackproval
+- Regular users can approve/deny/destroy requests and see a list of all users that have registered
 
-* Database initialization
+## Credits
+Developed by [Michael](https://github.com/mikestephens) and [Yash](https://github.com/YashdalfTheGray)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Logo created by logomakr.com
