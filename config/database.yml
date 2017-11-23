@@ -18,5 +18,8 @@ test:
   database: slackproval_test
 
 production:
-  <<: *default
-  database: slackproval_production
+  adapter: postgresql
+  host: <%= ENV["DATABASE_URL"] %>
+  username: <%= ENV["DATABASE_USER"] %>
+  database: <%= ENV["DATABASE"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
