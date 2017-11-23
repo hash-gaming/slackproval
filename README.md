@@ -10,7 +10,7 @@ Other slack auto-invite systems can cause issues by automatically allowing scamm
 ## Features
 - Approve or deny applicants
 - Blacklist domains/emails/IPs from being able to request access
-- Required reason for joining
+- Configurable required reason for joining
 - Customizable name and logo
 - Configurable Code of Conduct agreement
 - Anti bot measures
@@ -31,6 +31,7 @@ Environment Variables:
 - `DEFAULT_ADMIN_EMAIL` (required) Email of the default admin, when they register they will automatically be given the admin role
 - `ADMIN_USERNAME` Username to get to the user sign up page (default `admin`)
 - `ADMIN_PASSWORD` (required) Password to get to the user sign up page
+- `REQUIRE_REASON` Whether or not your requesting users need to provide a reason for joining (default: true)
 
 ## How to use
 ### First time launching

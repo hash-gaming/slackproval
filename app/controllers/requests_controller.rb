@@ -70,32 +70,33 @@ class RequestsController < ApplicationController
   end
 
   def approve
-    @request.update approved: true, denied: false
-    redirect_to requests_url(filter: params[:filter])
+    @request.update status: 'approved'
+    redirect_to requests_url(filter: params[:filter]), notice: "Approved #{@request.email}"
   end
 
   def deny
-    if @request.approved
+    if @request.approved?
       redirect_to requests_url(filter: params[:filter]), notice: 'Approved request cannot be denied.'
     else
-      @request.update denied: true, approved: false
-      redirect_to requests_url(filter: params[:filter])
+      @request.update status: 'denied'
+      redirect_to requests_url(filter: params[:filter]), notice: "Denied #{@request.email}"
     end
   end
 
   def approve_all
     Request.new_items.each do |request|
-      request.update approved: true, denied: false
+      request.update status: 'approved'
     end
     redirect_to requests_url, notice: 'All requests approved'
   end
 
   def deny_all
     Request.new_items.each do |request|
-      request.update approved: false, denied: true
+      request.update status: 'denied'
     end
     redirect_to requests_url, notice: 'All requests denied'
   end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request
@@ -104,6 +105,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:email, :reason, :approved, :denied)
+      params.require(:request).permit(:email, :reason, :status)
     end
 end
