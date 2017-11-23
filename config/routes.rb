@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     put :deny, on: :member
     get :approve, on: :member
     get :deny, on: :member
+    get :approve_all, on: :collection
+    get :deny_all, on: :collection
   end
   resources :users, only: [:new]
   resources :user_sessions

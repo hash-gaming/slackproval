@@ -1,9 +1,9 @@
 <table class="table">
-  <thead>
+  <thead class="thead">
     <tr>
-      <th scope="col">Email</th>
-      <th scope="col">Reason</th>
-      <th colspan="1" style="width: 1px;"></th>
+      <th scope="col" style="border-top: none;">Email</th>
+      <th scope="col" style="border-top: none;">Reason</th>
+      <th colspan="1" style="width: 1px; border-top: none;"></th>
     </tr>
   </thead>
 
@@ -15,12 +15,12 @@
         <td>
           <div class="btn-group" role="group">
             <% unless params[:filter] == "approved"%>
-              <%= link_to fa_icon("check"), approve_request_path(request, filter: params[:filter]), method: :put, class: "btn btn-success btn-sm"%>
+              <%= link_to fa_icon("check"), approve_request_path(request, filter: params[:filter]), method: :put, class: "btn btn-outline-success btn-sm"%>
               <% unless params[:filter] == "denied"%>
-                <%= link_to fa_icon("times"), deny_request_path(request, filter: params[:filter]), class: "btn btn-warning btn-sm"%>
+                <%= link_to fa_icon("times"), deny_request_path(request, filter: params[:filter]), class: "btn btn-outline-danger btn-sm"%>
               <% end %>
             <% end%>
-            <%= link_to fa_icon("trash"), request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+            <%= link_to fa_icon("trash"), request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %>
           </div>
         </td>
       </tr>

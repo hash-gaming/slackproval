@@ -15,24 +15,24 @@
   </head>
 
   <body>
-    <div class="navbar navbar-inverse bg-inverse">
+    <nav class="navbar navbar-dark bg-dark">
       <div class="container d-flex justify-content-between">
         <%= link_to ENV["SLACK_NAME"], root_path, class: "navbar-brand" %>
         <form class="form-inline my-2 my-lg-0">
           <% if current_user %>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <%= link_to requests_path, class: "btn btn-outline-success" do %>
+              <%= link_to requests_path, class: "btn btn-outline-success btn-sm" do %>
                 Requests <span class="badge badge-light"><%= Request.new_items.count if Request.new_items.any? %></span>
               <% end %>
-              <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-info" %>
-              <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-secondary" %>
+              <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-info btn-sm" %>
+              <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-secondary btn-sm" %>
             </div>
           <% else %>
-             <%= link_to "Admin Login", :login, class: "btn btn-outline-secondary" %>
+             <%= link_to "Admin Login", :login, class: "btn btn-outline-secondary btn-sm" %>
           <% end %>
         </form>
       </div>
-    </div>
+    </nav>
     <div class="site-content">
       <%= yield %>
     </div>
