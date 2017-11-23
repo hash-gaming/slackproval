@@ -14,8 +14,12 @@
         <td><%= request.reason %></td>
         <td>
           <div class="btn-group" role="group">
-            <%= link_to fa_icon("check"), approve_request_path(request), method: :put, class: "btn btn-success btn-sm"%>
-            <%= link_to fa_icon("times"), deny_request_path(request), class: "btn btn-warning btn-sm"%>
+            <% unless params[:filter] == "approved"%>
+              <%= link_to fa_icon("check"), approve_request_path(request, filter: params[:filter]), method: :put, class: "btn btn-success btn-sm"%>
+              <% unless params[:filter] == "denied"%>
+                <%= link_to fa_icon("times"), deny_request_path(request, filter: params[:filter]), class: "btn btn-warning btn-sm"%>
+              <% end %>
+            <% end%>
             <%= link_to fa_icon("trash"), request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
           </div>
         </td>
