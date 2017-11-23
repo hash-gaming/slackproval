@@ -1,8 +1,9 @@
 default: &default
   adapter: postgresql
-  username: slackproval
-  password: <%= ENV['POSTGRES_DB_PASSWORD'] %>
-  host: localhost
+  host: <%= ENV.fetch("DATABASE_URL", 'localhost') %>
+  username: <%= ENV["DATABASE_USER"] %>
+  database: <%= ENV["DATABASE"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
   pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 25 %>
   reaping_frequency: 3
 
@@ -14,12 +15,8 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
+
   database: slackproval_test
 
 production:
-  adapter: postgresql
-  host: <%= ENV["DATABASE_URL"] %>
-  username: <%= ENV["DATABASE_USER"] %>
-  database: <%= ENV["DATABASE"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  <<: *default

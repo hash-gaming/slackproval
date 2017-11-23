@@ -21,7 +21,11 @@ Other slack auto-invite systems can cause issues by automatically allowing scamm
 - Ruby/Rails
 ### Configuration
 Environment Variables:
-- `POSTGRES_DB_PASSWORD` (required) Set the password for the DB
+- `DATABASE_URL` (required) Set the url for the database (default: localhost)
+- `DATABASE_USER` (required) Set the user for the database
+- `DATABASE` (required) Name of the database
+- `DATABASE_PASSWORD` (required) Password to the database user
+- `DB_POOL` Amount of database pool (default: 25)
 - `SLACK_NAME` Name of your slack
 - `SLACK_ICON` URL to your slack icon
 - `DEFAULT_ADMIN_EMAIL` (required) Email of the default admin, when they register they will automatically be given the admin role
