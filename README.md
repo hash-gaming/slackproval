@@ -5,10 +5,10 @@ The lightweight slack approved system for managing invites to an open slack comm
 ![](https://i.imgur.com/RPrOmu1.png)
 
 ## What makes Slackproval different?
-Other slack auto-invite systems can cause issues by automatically allowing just anyone to join your open slack community. Slackproval is an open source solution that gives the admins of the community power to moderate their incoming new users.
+Other slack auto-invite systems can cause issues by automatically allowing scammers/phishers/spammers to join your open slack community. Slackproval is an open source solution that gives the admins of the community power to moderate their incoming new users.
 
 ## Features
-- Approve or deny applicants instead of auto approval
+- Approve or deny applicants
 - Blacklist domains/emails/IPs from being able to request access
 - Required reason for joining
 - Customizable name and logo
