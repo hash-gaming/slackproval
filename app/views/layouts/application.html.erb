@@ -27,8 +27,6 @@
               <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-info btn-sm" %>
               <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-secondary btn-sm" %>
             </div>
-          <% else %>
-             <%= link_to "Admin Login", :login, class: "btn btn-outline-secondary btn-sm" %>
           <% end %>
         </form>
       </div>

@@ -32,6 +32,7 @@ Environment Variables:
 ### First time launching
 - After launching the application on your choice hosting service, make sure you configure the application with the above environment variables.
 - Go to https://your_url_here/signup and enter the `ADMIN_USERNAME` and `ADMIN_PASSWORD` and sign up with your `DEFAULT_ADMIN_EMAIL`
+- Go to https://your_url_here/login to access your account
 - Start approving users!
 ### Approval process
 - An end user will go through the requesting access process, and then the requests will show up in the "Requests" tab
