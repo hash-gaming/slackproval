@@ -1,4 +1,6 @@
 class Request < ApplicationRecord
+  audited only: :status
+
   validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validate :reason_required
   validates :status, inclusion: { in: ['pending', 'approved', 'denied'] }

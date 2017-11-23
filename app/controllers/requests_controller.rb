@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy, :approve, :deny]
   before_action :authentication_check, only: [:show, :index, :update, :edit, :destroy, :approve, :deny, :approved, :denied]
+  before_action :require_admin, only: [:audit_log]
 
   # GET /requests
   # GET /requests.json
@@ -27,6 +28,10 @@ class RequestsController < ApplicationController
 
   # GET /requests/1/edit
   def edit
+  end
+
+  def audit_log
+    @audits = Audited::Audit.where(auditable_type: "Request").page(params[:page])
   end
 
   # POST /requests

@@ -7,34 +7,33 @@ end
 
 
 gem 'rails', '~> 5.1.4'
+gem 'audited'
 gem 'bootstrap4-kaminari-views'
-gem "font-awesome-rails"
+gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'kaminari'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails'
 gem 'sorcery'
+gem 'turbolinks', '~> 5'
+gem 'uglifier', '>= 1.3.0'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'dotenv-rails'
-  gem 'pry'
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'dotenv-rails'
   gem 'faker'
+  gem 'pry'
+  gem 'selenium-webdriver'
 end
 
 group :development do
-
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-
-  gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring'
+  gem 'web-console', '>= 3.3.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

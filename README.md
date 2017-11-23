@@ -14,6 +14,7 @@ Other slack auto-invite systems can cause issues by automatically allowing scamm
 - Customizable name and logo
 - Configurable Code of Conduct agreement
 - Anti bot measures
+- Audit log for requests
 
 ## How to set up
 ### Requirements

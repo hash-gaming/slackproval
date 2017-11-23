@@ -1,5 +1,9 @@
 <%= render 'shared/notice' %>
 
+<% if current_user.admin? %>
+  <%= link_to "Audit Log", audit_log_requests_path, class: "float-right"%>
+<% end %>
+
 <h2>Requests</h2>
 
 <ul class="nav nav-tabs">

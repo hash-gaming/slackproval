@@ -1,0 +1,27 @@
+<%= render 'shared/notice' %>
+
+<h2>Audit Log</h2>
+
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th scope="col" style="border-top: none;">Request</th>
+      <th scope="col" style="border-top: none;">Changes</th>
+      <th scope="col" style="border-top: none;">Changed By</th>
+      <th scope="col" style="border-top: none;">Time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @audits.each do |audit| %>
+      <tr>
+        <td><%= audit.auditable.email %></td>
+        <td><code><%= audit.audited_changes %></code></td>
+        <td><%= audit.user.email %></td>
+        <td><%= audit.created_at.to_formatted_s(:long)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @audits, theme: 'twitter-bootstrap-4' %>

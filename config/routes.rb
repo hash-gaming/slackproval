@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get :deny, on: :member
     get :approve_all, on: :collection
     get :deny_all, on: :collection
+    get :audit_log, on: :collection
   end
   resources :users, only: [:new]
   resources :user_sessions

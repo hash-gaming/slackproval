@@ -21,3 +21,11 @@
   </div>
   <%= form.submit 'Submit', class: "btn btn-primary" %>
 <% end %>
+
+<% content_for :footer do %>
+  <footer class="text-muted site-footer">
+    <div class="container">
+      <p>Created with ♥ by <a href="http://hashtaggaming.herkokuapp.com"> Hashtag Gaming </a> <%= link_to fa_icon("github"), "https://github.com/hash-gaming/slackproval" %></p>
+    </div>
+  </footer>
+<% end %>
