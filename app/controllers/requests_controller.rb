@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy, :approve, :deny]
-  before_action :authentication_check, only: [:index, :update, :edit, :destroy, :approve, :deny, :approved, :denied]
+  before_action :authentication_check, only: [:show, :index, :update, :edit, :destroy, :approve, :deny, :approved, :denied]
 
   # GET /requests
   # GET /requests.json
@@ -36,7 +36,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Request submitted for approval' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
