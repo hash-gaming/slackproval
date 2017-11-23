@@ -15,7 +15,7 @@
   <tbody>
     <% @audits.each do |audit| %>
       <tr>
-        <td><%= audit.auditable.email %></td>
+        <td><%= Request.with_deleted.find(audit.auditable_id).email %></td>
         <td><code><%= audit.audited_changes %></code></td>
         <td><%= audit.user.email %></td>
         <td><%= audit.created_at.to_formatted_s(:long)%></td>
