@@ -1,0 +1,15 @@
+<%= form_with(model: email_ban, local: true) do |form| %>
+  <% if email_ban.errors.any? %>
+    <%= errors_for(email_ban) %>
+    <br />
+  <% end %>
+  <div class="form-group">
+    <%= form.label :email do %>
+      Email
+      <a style="color: red;"> *</a>
+    <% end %>
+    <%= form.text_field :email, id: :email_ban_email, class: "form-control" %>
+  </div>
+
+  <%= form.submit 'Submit', class: "btn btn-primary float-right" %>
+<% end %>

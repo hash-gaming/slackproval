@@ -1,0 +1,8 @@
+<div class="register_form">
+
+  <h1>New <%= (params[:ban_type] || params["ban"]["ban_type"]).titleize %> Ban</h1>
+
+  <%= render 'form', ban: @ban, ban_type: params[:ban_type] %>
+
+  <%= link_to 'Back', bans_path %>
+</div>

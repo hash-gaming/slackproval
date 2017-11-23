@@ -1,0 +1,17 @@
+<%= form_with(model: ban, local: true) do |form| %>
+  <% if ban.errors.any? %>
+    <%= errors_for(ban) %>
+    <br />
+  <% end %>
+  <div class="form-group">
+    <%= form.label :ban_value do %>
+      <%= ban_type.titleize %>
+      <a style="color: red;"> *</a>
+    <% end %>
+    <%= form.text_field :ban_value, id: :ban_ban_value, class: "form-control" %>
+  </div>
+
+  <%= form.hidden_field :ban_type, value: ban_type%>
+
+  <%= form.submit 'Submit', class: "btn btn-primary float-right" %>
+<% end %>

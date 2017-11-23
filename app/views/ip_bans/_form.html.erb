@@ -1,0 +1,15 @@
+<%= form_with(model: ip_ban, local: true) do |form| %>
+  <% if ip_ban.errors.any? %>
+    <%= errors_for(ip_ban) %>
+    <br />
+  <% end %>
+  <div class="form-group">
+    <%= form.label :ip do %>
+      IP
+      <a style="color: red;"> *</a>
+    <% end %>
+    <%= form.text_field :ip, id: :ip_ban_ip, class: "form-control" %>
+  </div>
+
+  <%= form.submit 'Submit', class: "btn btn-primary float-right" %>
+<% end %>

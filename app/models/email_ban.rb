@@ -1,0 +1,2 @@
+class EmailBan < ApplicationRecord
+end

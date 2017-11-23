@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ip Bans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ip_bans.each do |ip_ban| %>
+      <tr>
+        <td><%= ip_ban.string %></td>
+        <td><%= link_to 'Show', ip_ban %></td>
+        <td><%= link_to 'Edit', edit_ip_ban_path(ip_ban) %></td>
+        <td><%= link_to 'Destroy', ip_ban, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ip Ban', new_ip_ban_path %>

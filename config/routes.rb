@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :ip_bans
+  resources :domain_bans
+  resources :email_bans
   resources :users
   resources :requests do
     put :approve, on: :member
@@ -14,8 +17,8 @@ Rails.application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
-
   get 'signup' => 'users#new', as: :signup
+  get 'bans' => 'static#bans', as: :bans
 
   root to: 'static#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

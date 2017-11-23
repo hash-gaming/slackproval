@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div class="float-right">
+  <div class="dropdown">
+    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= fa_icon('plus', text: 'New Ban') %>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to 'Email Ban', new_ban_path(ban_type: "email"), class: "dropdown-item" %>
+      <%= link_to 'Domain Ban', new_ban_path(ban_type: "domain"), class: "dropdown-item" %>
+      <%= link_to 'IP Ban', new_ban_path(ban_type: "ip"), class: "dropdown-item" %>
+    </div>
+  </div>
+</div>
+
+<h1>Bans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bans.each do |ban| %>
+      <tr>
+        <td><%= link_to 'Show', ban %></td>
+        <td><%= link_to 'Edit', edit_ban_path(ban) %></td>
+        <td><%= link_to 'Destroy', ban, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

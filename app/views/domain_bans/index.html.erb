@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Domain Bans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @domain_bans.each do |domain_ban| %>
+      <tr>
+        <td><%= domain_ban.string %></td>
+        <td><%= link_to 'Show', domain_ban %></td>
+        <td><%= link_to 'Edit', edit_domain_ban_path(domain_ban) %></td>
+        <td><%= link_to 'Destroy', domain_ban, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Domain Ban', new_domain_ban_path %>
