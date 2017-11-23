@@ -6,8 +6,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Email</th>
-      <th colspan="3"></th>
+      <th scope="col" style="border-top: none;">Email</th>
+      <th colspan="1" style="text-align: center; border-top: none;">Admin</th>
+      <th colspan="1" style="width: 1px; border-top: none;"></th>
     </tr>
   </thead>
 
@@ -15,13 +16,16 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <% if user == current_user %>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <% end %>
-        <% if current_user.admin? || user == current_user %>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <td style="text-align: center;"><%= fa_icon('check') if user.admin? %> </td>
+        <td>
+          <div class="btn-group" role="group">
+            <%= link_to fa_icon("search"), user, class: "btn btn-outline-secondary btn-sm"%>
+            <%= link_to fa_icon("pencil"), edit_user_path(user), class: "btn btn-outline-secondary btn-sm"%>
+            <% if current_user.admin? %>
+              <%= link_to fa_icon("trash"), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %></td>
+            <% end %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>

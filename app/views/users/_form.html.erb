@@ -24,5 +24,16 @@
     <% end %>
     <%= form.password_field :password_confirmation, class: "form-control" %>
   </div>
+  <% if current_user && current_user.admin? %>
+    <div class="form-group">
+
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <%= form.check_box :admin, class: "form-check-input" %>
+        Admin
+      </label>
+    </div>
+  <% end %>
   <%= form.submit 'Submit', class: "btn btn-primary" %>
 <% end %>
