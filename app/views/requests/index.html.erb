@@ -16,8 +16,8 @@
 
 <% if params[:filter].blank? %>
   <div class="btn-group float-right" style="margin: 16px 8px;" role="group" aria-label="List Actions">
-    <%= link_to "Approve All", approve_all_requests_path, class: "btn btn-outline-success" %>
-    <%= link_to "Deny All", deny_all_requests_path, class: "btn btn-outline-danger" %>
+    <%= link_to "Approve All", approve_all_requests_path, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success" %>
+    <%= link_to "Deny All", deny_all_requests_path, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
   </div>
 <% end %>
 
