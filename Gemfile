@@ -7,7 +7,9 @@ end
 
 
 gem 'rails', '~> 5.1.4'
+gem 'bootstrap4-kaminari-views'
 gem "font-awesome-rails"
+gem 'kaminari'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'

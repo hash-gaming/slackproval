@@ -7,11 +7,11 @@ class RequestsController < ApplicationController
   def index
     @requests = case params[:filter]
     when "approved"
-      Request.approved
+      Request.approved.page(params[:page])
     when "denied"
-      Request.denied
+      Request.denied.page(params[:page])
     else
-      Request.new_items
+      Request.new_items.page(params[:page])
     end
   end
 

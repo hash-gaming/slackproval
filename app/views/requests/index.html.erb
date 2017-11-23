@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <div class="float-right">
-  <%= link_to "New", requests_path, class: "btn #{'btn-primary' if params[:filter].blank?}" %>
-  <%= link_to "Approved", requests_path(filter: "approved"), class: "btn #{'btn-primary' if params[:filter] == 'approved'}" %>
-  <%= link_to "Denied", requests_path(filter: "denied"), class: "btn #{'btn-primary' if params[:filter] == 'denied'}" %>
+  <%= link_to "New", requests_path(page: nil), class: "btn #{'btn-primary' if params[:filter].blank?}" %>
+  <%= link_to "Approved", requests_path(filter: "approved", page: nil), class: "btn #{'btn-primary' if params[:filter] == 'approved'}" %>
+  <%= link_to "Denied", requests_path(filter: "denied", page: nil), class: "btn #{'btn-primary' if params[:filter] == 'denied'}" %>
 </div>
 <h1><%= (params[:filter].presence || "New").titleize%> Requests</h1>
 
