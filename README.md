@@ -61,7 +61,7 @@ Environment Variables:
 - `Admin` allows the user to show/edit/destroy any user on Slackproval
 - Regular users can approve/deny/destroy requests and see a list of all users that have registered
 
-### Developing
+## Developing
 Options:
 - `MOCK_INVITE` - Environment Variable, set to `true` to not actually send out slack email invites
 Helpful:
