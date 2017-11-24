@@ -22,17 +22,22 @@ Other slack auto-invite systems can cause issues by automatically allowing scamm
 - Ruby/Rails
 ### Configuration
 Environment Variables:
-- `DATABASE_URL` (required) Set the url for the database (default: localhost)
-- `DATABASE_USER` (required) Set the user for the database
-- `DATABASE` (required) Name of the database
-- `DATABASE_PASSWORD` (required) Password to the database user
-- `DB_POOL` Amount of database pool (default: 25)
+*Required*
+- `SLACK_API_TOKEN` - Slack API token for authentication. Must be the legacy api token found [here](https://api.slack.com/custom-integrations/legacy-tokens)
+- `SLACK_SUBDOMAIN` - Slack subdomain (ex: `example` in https://example.slack.com)
+- `DATABASE_URL` - Set the url for the database (default: localhost)
+  - On heroku, this includes the username and password for the database
 - `SLACK_NAME` Name of your slack
 - `SLACK_ICON` URL to your slack icon
-- `DEFAULT_ADMIN_EMAIL` (required) Email of the default admin, when they register they will automatically be given the admin role
-- `ADMIN_USERNAME` Username to get to the user sign up page (default `admin`)
-- `ADMIN_PASSWORD` (required) Password to get to the user sign up page
-- `REQUIRE_REASON` Whether or not your requesting users need to provide a reason for joining (default: true)
+- `DEFAULT_ADMIN_EMAIL` - Email of the default admin, when they register they will automatically be given the admin role
+- `ADMIN_PASSWORD` - Password to get to the user sign up page
+*Optional*
+- `DATABASE_USER` - Set the user for the database
+- `DATABASE` - Name of the database
+- `DATABASE_PASSWORD` - Password to the database user
+- `DB_POOL` - Amount of database pool (default: 25)
+- `ADMIN_USERNAME` - Username to get to the user sign up page (default `admin`)
+- `REQUIRE_REASON` - Whether or not your requesting users need to provide a reason for joining (default: true)
 
 ## How to use
 ### First time launching
@@ -51,6 +56,12 @@ Environment Variables:
 ### User management
 - `Admin` allows the user to show/edit/destroy any user on Slackproval
 - Regular users can approve/deny/destroy requests and see a list of all users that have registered
+
+### Developing
+Options:
+- `MOCK_INVITE` - Set to `true` to not actually send out slack email invites
+Helpful:
+- `rake fake:requests` - Generates 100 fake requests
 
 ## Credits
 Developed by [Michael](https://github.com/mikestephens) and [Yash](https://github.com/YashdalfTheGray)

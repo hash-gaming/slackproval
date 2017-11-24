@@ -77,8 +77,16 @@ class RequestsController < ApplicationController
   end
 
   def approve
-    @request.update status: 'approved'
-    redirect_to requests_url(filter: params[:filter]), notice: "Approved #{@request.email}"
+    if @request.update status: 'approved'
+      response = Slack.new(email: @request.email).send_invite
+      if response.status.to_s == "200 OK"
+        redirect_to requests_url(filter: params[:filter]), notice: "Approved #{@request.email}"
+      else
+        redirect_to requests_url(filter: params[:filter]), notice: "Something went wrong"
+      end
+    else
+      redirect_to requests_url(filter: params[:filter]), notice: "Something went wrong"
+    end
   end
 
   def deny
@@ -91,10 +99,21 @@ class RequestsController < ApplicationController
   end
 
   def approve_all
+    approved = 0
+    errored = 0
     Request.new_items.each do |request|
-      request.update status: 'approved'
+      if request.update status: 'approved'
+        response = Slack.new(email: request.email).send_invite
+        if response.status.to_s == "200 OK"
+          approved += 1
+        else
+          errored += 1
+        end
+      else
+        errored += 1
+      end
     end
-    redirect_to requests_url, notice: 'All requests approved'
+    redirect_to requests_url, notice: "#{approved} requests approved. #{errored} requests errored"
   end
 
   def deny_all
