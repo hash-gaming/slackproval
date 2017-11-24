@@ -3,6 +3,7 @@
     <tr>
       <th scope="col" style="border-top: none;">Email</th>
       <th scope="col" style="border-top: none;">Reason</th>
+      <th scope="col" style="border-top: none;">IP</th>
       <th colspan="1" style="width: 1px; border-top: none;"></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
       <tr>
         <td><%= request.email %></td>
         <td><%= request.reason %></td>
+        <td><code><%= request.ip %></code></td>
         <td>
           <div class="btn-group" role="group">
             <% unless params[:filter] == "approved"%>

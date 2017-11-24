@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123175356) do
+ActiveRecord::Schema.define(version: 20171123225241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20171123175356) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
+  create_table "bans", force: :cascade do |t|
+    t.string "ban_type"
+    t.string "ban_value"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "requests", force: :cascade do |t|
     t.string "email"
     t.text "reason"
@@ -44,6 +52,7 @@ ActiveRecord::Schema.define(version: 20171123175356) do
     t.datetime "updated_at", null: false
     t.string "status", default: "pending"
     t.datetime "deleted_at"
+    t.string "ip"
     t.index ["deleted_at"], name: "index_requests_on_deleted_at"
   end
 

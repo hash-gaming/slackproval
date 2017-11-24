@@ -24,7 +24,8 @@
               <%= link_to requests_path, class: "btn btn-outline-success btn-sm" do %>
                 Requests <span class="badge badge-light"><%= Request.new_items.count if Request.new_items.any? %></span>
               <% end %>
-              <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-info btn-sm" %>
+              <%= link_to fa_icon("gavel"), bans_path, class: "btn btn-outline-light btn-sm" %>
+              <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-light btn-sm" %>
               <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-secondary btn-sm" %>
             </div>
           <% end %>

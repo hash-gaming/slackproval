@@ -1,0 +1,29 @@
+<%= form_with(model: ban, local: true) do |form| %>
+  <% if ban.errors.any? %>
+    <%= errors_for(ban) %>
+    <br />
+  <% end %>
+  <div class="form-group">
+    <%= form.label :ban_value do %>
+      Ban Value
+      <a style="color: red;"> *</a>
+    <% end %>
+    <%= form.text_field :ban_value, id: :ban_ban_value, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ban_type do %>
+      Type
+      <a style="color: red;"> *</a>
+    <% end %>
+    <br />
+  </div>
+  <%= form.radio_button :ban_type, 'email', checked: true %> Email<br />
+  <%= form.radio_button :ban_type, 'domain' %> Domain<br />
+  <%= form.radio_button :ban_type, 'ip' %> IP<br />
+
+  <div class="btn-group float-right" role="group">
+    <%= link_to 'Back', bans_path, class: 'btn btn-outline-secondary' %>
+    <%= form.submit 'Submit', class: "btn btn-primary" %>
+  </div>
+<% end %>

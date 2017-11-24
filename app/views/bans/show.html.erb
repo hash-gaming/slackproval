@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ban type:</strong>
+  <%= @ban.ban_type %>
+</p>
+
+<p>
+  <strong>Ban:</strong>
+  <%= @ban.ban_value %>
+</p>
+
+<%= link_to 'Edit', edit_ban_path(@ban) %> |
+<%= link_to 'Back', bans_path %>

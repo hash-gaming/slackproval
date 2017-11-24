@@ -25,9 +25,6 @@
     <%= form.password_field :password_confirmation, class: "form-control" %>
   </div>
   <% if current_user && current_user.admin? %>
-    <div class="form-group">
-
-    </div>
     <div class="form-check">
       <label class="form-check-label">
         <%= form.check_box :admin, class: "form-check-input" %>
@@ -35,5 +32,8 @@
       </label>
     </div>
   <% end %>
-  <%= form.submit 'Submit', class: "btn btn-primary" %>
+  <div class="btn-group float-right" role="group">
+    <%= link_to 'Back', users_path, class: 'btn btn-outline-secondary' %>
+    <%= form.submit 'Submit', class: "btn btn-primary" %>
+  </div>
 <% end %>

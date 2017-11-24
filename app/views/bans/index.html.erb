@@ -1,0 +1,39 @@
+<%= render 'shared/notice' %>
+
+<div class="float-right">
+  <div class="btn-group" role="group">
+    <% if current_user.admin? %>
+      <%= link_to "Audit Log", audit_log_bans_path, class: "btn btn-outline-secondary"%>
+    <% end %>
+    <%= link_to fa_icon('plus', text: 'New Ban'), new_ban_path, class: "btn btn-outline-primary" %>
+  </div>
+</div>
+
+<h1>Bans</h1>
+
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th scope="col" style="border-top: none;">Type</th>
+      <th scope="col" style="border-top: none;">Value</th>
+      <th colspan="1" style="width: 1px; border-top: none;"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bans.each do |ban| %>
+      <tr>
+        <td><%= ban.ban_type %></td>
+        <td><%= ban.ban_value %></td>
+        <td>
+          <div class="btn-group" role="group">
+            <%= link_to fa_icon('pencil'), edit_ban_path(ban), class: "btn btn-sm btn-outline-secondary" %>
+            <%= link_to fa_icon('trash'), ban, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @bans, theme: 'twitter-bootstrap-4' %>

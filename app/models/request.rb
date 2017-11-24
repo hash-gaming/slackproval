@@ -4,6 +4,7 @@ class Request < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validate :reason_required
+  validate :ban_check
   validates :status, inclusion: { in: ['pending', 'approved', 'denied', 'deleted'] }
 
   scope :approved, -> { where status: 'approved' }
@@ -27,6 +28,12 @@ class Request < ApplicationRecord
   def reason_required
     if Request.reason_required? && reason.blank?
       errors.add(:reason, "can't be blank")
+    end
+  end
+
+  def ban_check
+    if Ban.check(email, ip)
+      errors[:base] << "Sorry, you are unable to request access."
     end
   end
 end

@@ -1,12 +1,13 @@
 <%= render 'shared/notice' %>
 
-<%= link_to fa_icon('arrow-left', text: 'Back'), requests_path, class: "btn btn-outline-secondary float-right" %>
+<%= link_to fa_icon('arrow-left', text: 'Back'), bans_path, class: "btn btn-outline-secondary float-right" %>
 <h2>Audit Log</h2>
 
 <table class="table">
   <thead class="thead">
     <tr>
-      <th scope="col" style="border-top: none;">Request</th>
+      <th scope="col" style="border-top: none;">Value</th>
+      <th scope="col" style="border-top: none;">Type</th>
       <th scope="col" style="border-top: none;">Changes</th>
       <th scope="col" style="border-top: none;">Changed By</th>
       <th scope="col" style="border-top: none;">Time</th>
@@ -16,7 +17,8 @@
   <tbody>
     <% @audits.each do |audit| %>
       <tr>
-        <td><%= Request.with_deleted.find(audit.auditable_id).email %></td>
+        <td><%= Ban.with_deleted.find(audit.auditable_id).ban_value %></td>
+        <td><%= Ban.with_deleted.find(audit.auditable_id).ban_type %></td>
         <td><code><%= audit.audited_changes %></code></td>
         <td><%= audit.user.email %></td>
         <td><%= audit.created_at.to_formatted_s(:long)%></td>

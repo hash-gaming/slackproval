@@ -8,11 +8,11 @@ class RequestsController < ApplicationController
   def index
     @requests = case params[:filter]
     when "approved"
-      Request.approved.page(params[:page])
+      Request.approved.order('created_at DESC').page(params[:page])
     when "denied"
-      Request.denied.page(params[:page])
+      Request.denied.order('created_at DESC').page(params[:page])
     else
-      Request.new_items.page(params[:page])
+      Request.new_items.order('created_at DESC').page(params[:page])
     end
   end
 
@@ -38,6 +38,7 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
+    @request.ip = request.remote_ip
 
     respond_to do |format|
       if @request.save
@@ -55,7 +56,7 @@ class RequestsController < ApplicationController
   def update
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+        format.html { redirect_to requests_path, notice: 'Request was successfully updated.' }
         format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }

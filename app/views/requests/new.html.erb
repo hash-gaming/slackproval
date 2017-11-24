@@ -1,11 +1,16 @@
 <div class="register_form">
 
-  <h1>Request</h1>
-  <p>
-    <a>Request access to the </a>
-    <%= ENV.fetch("SLACK_NAME", "") %>
-    <a>Slack!</a>
-  </p>
+  <div class="centered">
+    <section class="text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading"><%= ENV["SLACK_NAME"] %></h1>
+        <p class="lead text-muted">
+          <%= image_tag ENV.fetch("SLACK_ICON", "") %>
+        </p>
+      </div>
+    </section>
+  </div>
+
 
   <%= render 'form', request: @request %>
 </div>

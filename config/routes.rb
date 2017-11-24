@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :bans, except: [:show] do
+    get :audit_log, on: :collection
+  end
   resources :users
-  resources :requests do
+  resources :requests, except: [:show, :edit] do
     put :approve, on: :member
     put :deny, on: :member
     get :approve, on: :member
