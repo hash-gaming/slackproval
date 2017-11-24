@@ -8,11 +8,11 @@ class RequestsController < ApplicationController
   def index
     @requests = case params[:filter]
     when "approved"
-      Request.approved.order('created_at DESC').page(params[:page])
+      Request.approved.search(params[:query]).order('created_at DESC').page(params[:page])
     when "denied"
-      Request.denied.order('created_at DESC').page(params[:page])
+      Request.denied.search(params[:query]).order('created_at DESC').page(params[:page])
     else
-      Request.new_items.order('created_at DESC').page(params[:page])
+      Request.new_items.search(params[:query]).order('created_at DESC').page(params[:page])
     end
   end
 
@@ -112,6 +112,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:email, :reason, :status)
+      params.require(:request).permit(:email, :reason, :status, :query)
     end
 end

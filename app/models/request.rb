@@ -11,6 +11,13 @@ class Request < ApplicationRecord
   scope :denied, -> { where status: 'denied' }
   scope :new_items, -> { where status: 'pending' }
 
+  def self.search(query)
+    if query
+      where('email LIKE ?', "%#{query}%")
+    else
+      all
+    end
+  end
 
   def approved?
     status == 'approved'
