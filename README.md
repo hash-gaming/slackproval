@@ -22,7 +22,9 @@ Other slack auto-invite systems can cause issues by automatically allowing scamm
 - Ruby/Rails
 ### Configuration
 Environment Variables:
+
 *Required*
+
 - `SLACK_API_TOKEN` - Slack API token for authentication. Must be the legacy api token found [here](https://api.slack.com/custom-integrations/legacy-tokens)
 - `SLACK_SUBDOMAIN` - Slack subdomain (ex: `example` in https://example.slack.com)
 - `DATABASE_URL` - Set the url for the database (default: localhost)
@@ -31,7 +33,9 @@ Environment Variables:
 - `SLACK_ICON` URL to your slack icon
 - `DEFAULT_ADMIN_EMAIL` - Email of the default admin, when they register they will automatically be given the admin role
 - `ADMIN_PASSWORD` - Password to get to the user sign up page
+
 *Optional*
+
 - `DATABASE_USER` - Set the user for the database
 - `DATABASE` - Name of the database
 - `DATABASE_PASSWORD` - Password to the database user
