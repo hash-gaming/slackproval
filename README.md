@@ -63,7 +63,7 @@ Environment Variables:
 
 ### Developing
 Options:
-- `MOCK_INVITE` - Set to `true` to not actually send out slack email invites
+- `MOCK_INVITE` - Environment Variable, set to `true` to not actually send out slack email invites
 Helpful:
 - `rake fake:requests` - Generates 100 fake requests
 
