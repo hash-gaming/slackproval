@@ -18,7 +18,7 @@
       <tr>
         <td><%= Request.with_deleted.find(audit.auditable_id).email %></td>
         <td><code><%= audit.audited_changes %></code></td>
-        <td><%= audit.user.email %></td>
+        <td><%= User.with_deleted.find(audit.user_id).email %></td>
         <td><%= audit.created_at.to_formatted_s(:long)%></td>
       </tr>
     <% end %>
