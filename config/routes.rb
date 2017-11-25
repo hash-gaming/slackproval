@@ -15,11 +15,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new]
   resources :user_sessions
 
-  get 'login' => 'user_sessions#new', :as => :login
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'login' => 'user_sessions#new', as: :login
+  post 'logout' => 'user_sessions#destroy', as: :logout
 
   get 'signup' => 'users#new', as: :signup
 
   root to: 'static#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -35,10 +35,8 @@ class BansController < ApplicationController
     respond_to do |format|
       if @ban.save
         format.html { redirect_to bans_path, notice: 'Ban was successfully created.' }
-        format.json { render :show, status: :created, location: @ban }
       else
         format.html { render :new }
-        format.json { render json: @ban.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,10 +47,8 @@ class BansController < ApplicationController
     respond_to do |format|
       if @ban.update(ban_params)
         format.html { redirect_to bans_path, notice: 'Ban was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ban }
       else
         format.html { render :edit }
-        format.json { render json: @ban.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,7 +59,6 @@ class BansController < ApplicationController
     @ban.destroy
     respond_to do |format|
       format.html { redirect_to bans_url, notice: 'Ban was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

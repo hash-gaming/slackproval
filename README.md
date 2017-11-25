@@ -62,7 +62,15 @@ Environment Variables:
 - Regular users can approve/deny/destroy requests and see a list of all users that have registered
 
 ## Developing
-Options:
+### Getting started
+- Install [Postgres](https://wiki.postgresql.org/wiki/Detailed_installation_guides)
+- Use Ruby version 2.3+
+- Set up your `.env` file with the above [configuration](#configuration)
+- Run `bundle install` to install gems
+- Run `rake db:create` to create the database
+- Run `rake db:migrate` to run the rails migrations
+- Run `puma` to start the rails server
+### Helpful Options:
 - `MOCK_INVITE` - Environment Variable, set to `true` to not actually send out slack email invites
 Helpful:
 - `rake fake:requests` - Generates 100 fake requests
