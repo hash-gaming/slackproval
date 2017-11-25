@@ -49,6 +49,8 @@ GEM
       kaminari (>= 0.13)
       rails (>= 3.1)
     builder (3.2.3)
+    bulma-rails (0.6.1)
+      sass (~> 3.2)
     byebug (9.1.0)
     capybara (2.16.0)
       addressable
@@ -235,6 +237,7 @@ PLATFORMS
 DEPENDENCIES
   audited
   bootstrap4-kaminari-views
+  bulma-rails
   byebug
   capybara
   dotenv-rails
