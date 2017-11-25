@@ -17,6 +17,26 @@
 
 @import "font-awesome";
 
+flex-container {
+  display: flex;
+}
+
+flex-row {
+  flex-direction: row;
+}
+
+flex-column {
+  flex-direction: column;
+}
+
+flex-item-static {
+  flex: 0 1 auto;
+}
+
+flex-item-dynamic {
+  flex: 1 1 auto;
+}
+
 .site-content {
   margin-left: 15%;
   margin-right: 15%;
