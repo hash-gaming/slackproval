@@ -19,6 +19,14 @@
     <% end %>
     <%= form.text_area :reason, id: :request_reason, class: "form-control" %>
   </div>
+  <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == "true"%>
+    <div class="form-check">
+      <label class="form-check-label">
+        <%= form.check_box :code_of_conduct, class: "form-check-input" %>
+        I agree to follow the <%= link_to "Code of Conduct", code_of_conduct_path, target: :_blank %>
+      </label>
+    </div>
+  <% end %>
   <%= form.submit 'Submit', class: "btn btn-primary float-right" %>
 <% end %>
 
