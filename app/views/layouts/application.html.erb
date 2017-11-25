@@ -16,8 +16,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav class="navbar navbar-dark bg-dark">
+  <body class="flex-container flex-column">
+    <nav class="navbar navbar-dark bg-dark flex-item-static">
       <div class="container d-flex justify-content-between">
         <%= link_to ENV["SLACK_NAME"], root_path, class: "navbar-brand" %>
         <form class="form-inline my-2 my-lg-0">
@@ -31,16 +31,18 @@
                 <%= link_to fa_icon("book"), code_of_conduct_path, class: "btn btn-outline-light btn-sm" %>
               <% end %>
               <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-light btn-sm" %>
-              <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-secondary btn-sm" %>
+              <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-light btn-sm" %>
             </div>
           <% end %>
         </form>
       </div>
     </nav>
-    <div class="site-content">
+    <div class="site-content flex-item-dynamic">
       <%= yield %>
     </div>
 
-    <%= yield :footer %>
+    <div class="flex-item-static">
+      <%= yield :footer %>
+    </div>
   </body>
 </html>

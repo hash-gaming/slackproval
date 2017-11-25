@@ -1,6 +1,6 @@
 <%= render 'shared/notice' %>
 
-<div class="float-right">
+<div class="float-right page-actions-group">
   <div class="btn-group" role="group">
     <% if current_user.admin? %>
       <%= link_to "Audit Log", audit_log_requests_path, class: "btn btn-outline-secondary"%>

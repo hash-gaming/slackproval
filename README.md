@@ -80,6 +80,7 @@ To configre the code of conduct, follow these steps:
 - Run `puma` to start the rails server
 ### Helpful Options:
 - `MOCK_INVITE` - Environment Variable, set to `true` to not actually send out slack email invites
+
 Helpful:
 - `rake fake:requests` - Generates 100 fake requests
 
