@@ -10,21 +10,23 @@
     <% end %>
     <%= form.text_field :email, id: :user_email, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= form.label :password do %>
-      Password
-      <a style="color: red;"> *</a>
-    <% end %>
-    <%= form.password_field :password, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :password_confirmation do %>
-      Password Confirmation
-      <a style="color: red;"> *</a>
-    <% end %>
-    <%= form.password_field :password_confirmation, class: "form-control" %>
-  </div>
-  <% if current_user && current_user.admin? %>
+  <% if current_user == user %>
+    <div class="form-group">
+      <%= form.label :password do %>
+        Password
+        <a style="color: red;"> *</a>
+      <% end %>
+      <%= form.password_field :password, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :password_confirmation do %>
+        Password Confirmation
+        <a style="color: red;"> *</a>
+      <% end %>
+      <%= form.password_field :password_confirmation, class: "form-control" %>
+    </div>
+  <% end %>
+  <% if current_user.admin? %>
     <div class="form-check">
       <label class="form-check-label">
         <%= form.check_box :admin, class: "form-check-input" %>

@@ -20,7 +20,9 @@
         <td>
           <div class="btn-group" role="group">
             <%= link_to fa_icon("search"), user, class: "btn btn-outline-secondary btn-sm"%>
-            <%= link_to fa_icon("pencil"), edit_user_path(user), class: "btn btn-outline-secondary btn-sm"%>
+            <% if current_user == user || current_user.admin?%>
+              <%= link_to fa_icon("pencil"), edit_user_path(user), class: "btn btn-outline-secondary btn-sm"%>
+            <% end %>
             <% if current_user.admin? %>
               <%= link_to fa_icon("trash"), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %></td>
             <% end %>
