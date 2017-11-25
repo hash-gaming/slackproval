@@ -42,6 +42,7 @@ Environment Variables:
 - `DB_POOL` - Amount of database pool (default: 25)
 - `ADMIN_USERNAME` - Username to get to the user sign up page (default `admin`)
 - `REQUIRE_REASON` - Whether or not your requesting users need to provide a reason for joining (default: true)
+- `CODE_OF_CONDUCT_REQUIRED` - Whether or not you mandate the requesting user agrees to a code of conduct (set to `true` for yes)
 
 ## How to use
 ### First time launching
@@ -60,6 +61,13 @@ Environment Variables:
 ### User management
 - `Admin` allows the user to show/edit/destroy any user on Slackproval
 - Regular users can approve/deny/destroy requests and see a list of all users that have registered
+### Code of Conduct
+The code of conduct must be written and the environment variable `CODE_OF_CONDUCT_REQUIRED` must be set to `true` in order to require users to agree to a code of conduct before requesting access
+To configre the code of conduct, follow these steps:
+- Set `CODE_OF_CONDUCT_REQUIRED` to `true` and restart your web application
+- Go to https://your_url/code_of_conduct
+- Hit the `Edit Code of Conduct` button
+- Write your code of conduct using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 ## Developing
 Options:
