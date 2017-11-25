@@ -24,5 +24,4 @@ Rails.application.routes.draw do
   post 'update_code_of_conduct' => 'static#update_code_of_conduct', as: :update_code_of_conduct
 
   root to: 'static#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
