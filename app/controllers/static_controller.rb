@@ -5,11 +5,10 @@ class StaticController < ApplicationController
   end
 
   def code_of_conduct
-    if File.exists?('CODE_OF_CONDUCT.md')
-      @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-    else
+    unless File.exists?('CODE_OF_CONDUCT.md')
       File.open("CODE_OF_CONDUCT.md", "w") {}
     end
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 
   def edit_code_of_conduct
