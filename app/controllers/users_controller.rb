@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    redirect_to root_path if current_user != @user
+    redirect_to root_path unless current_user == @user || current_user.admin?
   end
 
   # POST /users
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    redirect_to root_path if current_user != @user
+    redirect_to root_path unless current_user == @user || current_user.admin?
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
