@@ -10,6 +10,8 @@
     <title>Slackproval</title>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -25,6 +27,9 @@
                 Requests <span class="badge badge-light"><%= Request.new_items.count if Request.new_items.any? %></span>
               <% end %>
               <%= link_to fa_icon("gavel"), bans_path, class: "btn btn-outline-light btn-sm" %>
+              <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == 'true'%>
+                <%= link_to fa_icon("book"), code_of_conduct_path, class: "btn btn-outline-light btn-sm" %>
+              <% end %>
               <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-light btn-sm" %>
               <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-secondary btn-sm" %>
             </div>

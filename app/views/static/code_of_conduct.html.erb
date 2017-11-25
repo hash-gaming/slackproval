@@ -1,0 +1,5 @@
+<% if current_user %>
+  <%= link_to fa_icon('pencil', text: 'Edit Code of Conduct'), edit_code_of_conduct_path, class: 'float-right' %>
+<% end %>
+
+<%= raw @markdown.render(File.read("CODE_OF_CONDUCT.md"))%>
