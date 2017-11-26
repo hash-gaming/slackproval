@@ -1,12 +1,12 @@
 <h1>Users</h1>
 
 
-<table class="table">
+<table class="table is-fullwidth">
   <thead>
     <tr>
-      <th scope="col" style="border-top: none;">Email</th>
-      <th colspan="1" style="text-align: center; border-top: none;">Admin</th>
-      <th colspan="1" style="width: 1px; border-top: none;"></th>
+      <th>Email</th>
+      <th style="text-align: center;">Admin</th>
+      <th style="width: 1px;"></th>
     </tr>
   </thead>
 
@@ -16,14 +16,20 @@
         <td><%= user.email %></td>
         <td style="text-align: center;"><%= fa_icon('check') if user.admin? %> </td>
         <td>
-          <div class="btn-group" role="group">
-            <%= link_to fa_icon("search"), user, class: "btn btn-outline-secondary btn-sm"%>
-            <% if current_user == user || current_user.admin?%>
-              <%= link_to fa_icon("pencil"), edit_user_path(user), class: "btn btn-outline-secondary btn-sm"%>
-            <% end %>
-            <% if current_user.admin? %>
-              <%= link_to fa_icon("trash"), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %></td>
-            <% end %>
+          <div class="field is-grouped is-pulled-right">
+            <p class="control">
+              <%= link_to fa_icon("search"), user, class: "button is-outline is-small"%>
+            </p>
+            <p class="control">
+              <% if current_user == user || current_user.admin?%>
+                <%= link_to fa_icon("pencil"), edit_user_path(user), class: "button is-outline is-small"%>
+              <% end %>
+            </p>
+            <p class="control">
+              <% if current_user.admin? %>
+                <%= link_to fa_icon("trash"), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-outline is-small" %></td>
+              <% end %>
+            </p>
           </div>
         </td>
       </tr>
