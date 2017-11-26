@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.1.4'
 
 gem 'audited'
-gem 'bootstrap4-kaminari-views'
 gem 'bulma-rails'
 gem 'font-awesome-rails'
 gem 'http'
