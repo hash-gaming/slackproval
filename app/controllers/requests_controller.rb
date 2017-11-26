@@ -45,7 +45,7 @@ class RequestsController < ApplicationController
       if @request.save
         format.html { redirect_to root_path, notice: 'Request submitted for approval' }
       else
-        format.html { render :new }
+        format.html { render :new , layout: "public"}
       end
     end
   end
