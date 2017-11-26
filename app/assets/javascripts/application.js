@@ -15,7 +15,6 @@
 //= require jquery
 //= require_tree .
 
-
 document.addEventListener('DOMContentLoaded', function () {
 
   // Get all "navbar-burger" elements
