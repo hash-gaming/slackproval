@@ -1,39 +1,35 @@
-<%= form_with(model: request, local: true) do |form| %>
-  <% if request.errors.any? %>
-    <%= errors_for(request) %>
-    <br />
-  <% end %>
-  <div class="form-group">
-    <%= form.label :email do %>
-      Email
-      <a style="color: red;"> *</a>
+<div class="has-text-left">
+  <%= form_with(model: request, local: true) do |form| %>
+    <% if request.errors.any? %>
+      <%= errors_for(request) %>
+      <br />
     <% end %>
-    <%= form.text_field :email, id: :request_email, class: "form-control" %>
-  </div>
-  <div class="form-group">
-  <%= form.label :reason do %>
-      Reason
-      <% if Request.reason_required? %>
+    <div class="field">
+      <%= form.label :email, class: "label" do %>
+        Email
         <a style="color: red;"> *</a>
       <% end %>
+      <%= form.text_field :email, id: :request_email, class: "input" %>
+    </div>
+    <div class="field">
+      <%= form.label :reason, class: 'label' do %>
+        Reason
+        <% if Request.reason_required? %>
+          <a style="color: red;"> *</a>
+        <% end %>
+      <% end %>
+      <%= form.text_area :reason, id: :request_reason, class: "textarea" %>
+    </div>
+    <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == "true"%>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <%= form.check_box :code_of_conduct, class: "form-check-input" %>
+            I agree to follow the <%= link_to "Code of Conduct", code_of_conduct_path, target: :_blank %>
+          </label>
+        </div>
+      </div>
     <% end %>
-    <%= form.text_area :reason, id: :request_reason, class: "form-control" %>
-  </div>
-  <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == "true"%>
-    <div class="form-check">
-      <label class="form-check-label">
-        <%= form.check_box :code_of_conduct, class: "form-check-input" %>
-        I agree to follow the <%= link_to "Code of Conduct", code_of_conduct_path, target: :_blank %>
-      </label>
-    </div>
+    <%= form.submit 'Submit', class: "button is-primary is-pulled-right" %>
   <% end %>
-  <%= form.submit 'Submit', class: "btn btn-primary float-right" %>
-<% end %>
-
-<% content_for :footer do %>
-  <footer class="text-muted site-footer">
-    <div class="container">
-      <p>Created with ♥ by <a href="http://hashtaggaming.herkokuapp.com"> Hashtag Gaming </a> <%= link_to fa_icon("github"), "https://github.com/hash-gaming/slackproval" %></p>
-    </div>
-  </footer>
-<% end %>
+</div>

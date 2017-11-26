@@ -1,6 +1,6 @@
 <%= render 'shared/notice' %>
 
-<div class="hero-body">
+<div class="hero-body hero-modified-body">
   <div class="container has-text-centered">
     <h1 class="title">
       <h1 class="is-size-1"><%= ENV["SLACK_NAME"] %></h1>
@@ -9,15 +9,8 @@
     </h1>
     <h2 class="subtitle">
       <br />
-      <%= link_to "Request Access", new_request_path, class: "button is-primary" %>
+      <%= link_to "Request Access", new_request_path, class: "button is-primary is-large" %>
     </h2>
   </div>
 </div>
 
-<% content_for :footer do %>
-  <footer class="text-muted site-footer">
-    <div class="container">
-      <p>Created with ♥ by <a href="http://hashtaggaming.herkokuapp.com"> Hashtag Gaming </a> <%= link_to fa_icon("github"), "https://github.com/hash-gaming/slackproval" %></p>
-    </div>
-  </footer>
-<% end %>
