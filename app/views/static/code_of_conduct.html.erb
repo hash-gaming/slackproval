@@ -1,5 +1,15 @@
 <% if current_user %>
-  <%= link_to fa_icon('pencil', text: 'Edit Code of Conduct', class: "fa-fw"), edit_code_of_conduct_path, class: 'button is-white is-pulled-right' %>
+  <div class="columns">
+    <div class="column">
+    </div>
+    <div class="column">
+    </div>
+    <div class="column">
+    </div>
+    <div class="column">
+      <%= link_to fa_icon('pencil', text: 'Edit Code of Conduct', class: "fa-fw"), edit_code_of_conduct_path, class: 'button is-white is-pulled-right' %>
+    </div>
+  </div>
 <% end %>
 
 <%= raw @markdown.render(File.read("CODE_OF_CONDUCT.md"))%>
