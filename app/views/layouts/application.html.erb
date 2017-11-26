@@ -17,59 +17,49 @@
   </head>
 
   <body>
-    <section class="hero is-fullheight">
-      <nav class="navbar is-light">
-        <div class="navbar-brand">
-          <%= link_to ENV["SLACK_NAME"], root_path, class: "navbar-item" %>
-        </div>
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <%= link_to ENV["SLACK_NAME"], root_path, class: "navbar-item" %>
+      </div>
 
-        <% if current_user %>
-          <div class="navbar-burger burger" data-target="navbarLoggedIn">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div id="navbarLoggedIn" class="navbar-menu">
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="field is-grouped">
+      <% if current_user %>
+        <div class="navbar-burger burger" data-target="navbarLoggedIn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="navbarLoggedIn" class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link_to requests_path, class: "button is-primary" do %>
+                    Requests <% if Request.new_items.any? %> <span class="tag is-light " style="margin-left: 5px;"><%= Request.new_items.count %></span> <% end %>
+                  <% end %>
+                </p>
+                <p class="control">
+                  <%= link_to fa_icon("gavel"), bans_path, class: "button" %>
+                </p>
+                  <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == 'true'%>
+                    <p class="control">
+                      <%= link_to fa_icon("book"), code_of_conduct_path, class: "button" %>
+                    </p>
+                  <% end %>
                   <p class="control">
-                    <%= link_to requests_path, class: "button is-primary" do %>
-                      Requests <% if Request.new_items.any? %> <span class="tag is-light " style="margin-left: 5px;"><%= Request.new_items.count %></span> <% end %>
-                    <% end %>
+                    <%= link_to fa_icon("users"), users_path, class: "button" %>
                   </p>
                   <p class="control">
-                    <%= link_to fa_icon("gavel"), bans_path, class: "button" %>
+                    <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "button" %>
                   </p>
-                    <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == 'true'%>
-                      <p class="control">
-                        <%= link_to fa_icon("book"), code_of_conduct_path, class: "button" %>
-                      </p>
-                    <% end %>
-                    <p class="control">
-                      <%= link_to fa_icon("users"), users_path, class: "button" %>
-                    </p>
-                    <p class="control">
-                      <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "button" %>
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
-      </nav>
-      <div class="container">
-        <%= yield %>
-      </div>
-
-      <div class="hero-foot">
-        <div class="is-boxed is-fullwidth">
-          <div class="container has-text-centered	">
-            <p><a style="height: 2.25em; line-height: 2.3;">Created with ♥ by</a><a href="http://hashtaggaming.herkokuapp.com" class="button is-text">Hashtag Gaming</a><%= link_to fa_icon("github"), "https://github.com/hash-gaming/slackproval", class: "button is-white" %></p>
           </div>
-        </div>
+        <% end %>
       </div>
-    </section>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

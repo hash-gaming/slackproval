@@ -24,6 +24,7 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
+    render layout: "public"
   end
 
   # GET /requests/1/edit
