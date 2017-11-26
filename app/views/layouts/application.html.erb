@@ -17,24 +17,45 @@
   </head>
 
   <body class="flex-container flex-column">
-    <nav class="navbar navbar-dark bg-dark flex-item-static">
-      <div class="container d-flex justify-content-between">
-        <%= link_to ENV["SLACK_NAME"], root_path, class: "navbar-brand" %>
-        <form class="form-inline my-2 my-lg-0">
-          <% if current_user %>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <%= link_to requests_path, class: "btn btn-outline-success btn-sm" do %>
-                Requests <span class="badge badge-light"><%= Request.new_items.count if Request.new_items.any? %></span>
-              <% end %>
-              <%= link_to fa_icon("gavel"), bans_path, class: "btn btn-outline-light btn-sm" %>
-              <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == 'true'%>
-                <%= link_to fa_icon("book"), code_of_conduct_path, class: "btn btn-outline-light btn-sm" %>
-              <% end %>
-              <%= link_to fa_icon("users"), users_path, class: "btn btn-outline-light btn-sm" %>
-              <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "btn btn-outline-light btn-sm" %>
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <%= link_to ENV["SLACK_NAME"], root_path, class: "navbar-item" %>
+      </div>
+
+      <% if current_user %>
+        <div class="navbar-burger burger" data-target="navbarLoggedIn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="navbarLoggedIn" class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link_to requests_path, class: "button is-primary" do %>
+                    Requests <% if Request.new_items.any? %> <span class="tag is-light " style="margin-left: 5px;"><%= Request.new_items.count %></span> <% end %>
+                  <% end %>
+                </p>
+                <p class="control">
+                  <%= link_to fa_icon("gavel"), bans_path, class: "button" %>
+                </p>
+                  <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == 'true'%>
+                    <p class="control">
+                      <%= link_to fa_icon("book"), code_of_conduct_path, class: "button" %>
+                    </p>
+                  <% end %>
+                  <p class="control">
+                    <%= link_to fa_icon("users"), users_path, class: "button" %>
+                  </p>
+                  <p class="control">
+                    <%= link_to fa_icon("sign-out"), :logout, method: :post, class: "button" %>
+                  </p>
+                </div>
+              </div>
             </div>
-          <% end %>
-        </form>
+          </div>
+        <% end %>
       </div>
     </nav>
     <div class="container flex-item-dynamic">
