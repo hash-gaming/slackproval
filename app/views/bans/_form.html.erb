@@ -3,27 +3,35 @@
     <%= errors_for(ban) %>
     <br />
   <% end %>
-  <div class="form-group">
-    <%= form.label :ban_value do %>
+  <div class="field">
+    <%= form.label :ban_value, class: "label" do %>
       Ban Value
       <a style="color: red;"> *</a>
     <% end %>
     <%= form.text_field :ban_value, id: :ban_ban_value, class: "form-control" %>
   </div>
-
-  <div class="form-group">
-    <%= form.label :ban_type do %>
-      Type
-      <a style="color: red;"> *</a>
-    <% end %>
-    <br />
+  <div class="control">
+    <label class="radio">
+      <%= form.radio_button :ban_type, 'email', checked: true %>
+      Email
+    </label>
+    <label class="radio">
+      <%= form.radio_button :ban_type, 'domain' %>
+      Domain
+    </label>
+    <label class="radio">
+      <%= form.radio_button :ban_type, 'ip' %>
+      IP
+    </label>
   </div>
-  <%= form.radio_button :ban_type, 'email', checked: true %> Email<br />
-  <%= form.radio_button :ban_type, 'domain' %> Domain<br />
-  <%= form.radio_button :ban_type, 'ip' %> IP<br />
 
-  <div class="btn-group float-right" role="group">
-    <%= link_to 'Back', bans_path, class: 'btn btn-outline-secondary' %>
-    <%= form.submit 'Submit', class: "btn btn-primary" %>
+  <div class="field is-grouped is-pulled-right">
+    <p class="control">
+      <%= link_to 'Back', bans_path, class: 'button is-outline' %>
+    </p>
+    <p class="control">
+      <%= form.submit 'Submit', class: "button is-primary is-pulled-right" %>
+    </p>
   </div>
 <% end %>
+

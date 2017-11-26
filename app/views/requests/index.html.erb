@@ -5,7 +5,7 @@
     <% end %>
   </p>
   <p class="control">
-    <%= link_to fa_icon('plus', text: ' New Request'), new_request_path, class: "button is-outline is-primary" %>
+    <%= link_to fa_icon('plus', text: 'New Request', class: "fa-fw"), new_request_path, class: "button is-outline is-primary" %>
   </p>
 </div>
 
@@ -35,10 +35,10 @@
 
   <div class="field is-grouped is-pulled-right">
     <p class="control">
-      <%= link_to fa_icon('check', text: " Approve All"), approve_all_requests_path, data: { confirm: 'Are you sure?' }, class: "button is-outline is-success" %>
+      <%= link_to fa_icon('check', text: "Approve All", class: "fa-fw"), approve_all_requests_path, data: { confirm: 'Are you sure?' }, class: "button is-outline is-success" %>
     </p>
     <p class="control">
-      <%= link_to fa_icon('times', text: " Deny All"), deny_all_requests_path, data: { confirm: 'Are you sure?' }, class: "button is-outline is-danger" %>
+      <%= link_to fa_icon('times', text: "Deny All", class: "fa-fw"), deny_all_requests_path, data: { confirm: 'Are you sure?' }, class: "button is-outline is-danger" %>
     </p>
   </div>
 <% end %>
