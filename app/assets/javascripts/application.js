@@ -17,14 +17,13 @@
 function getCorrectElementFromEvent(e) {
   if (e.target && e.target.matches('div.navbar-burger')) {
     return e.target;
-  }
-  else if (e.target && e.target.matches('div.navbar-burger > span')) {
+  } else if (e.target && e.target.matches('div.navbar-burger > span')) {
     return e.target.parentElement;
   }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.navbar-brand').addEventListener('click', function(e) {
+  document.querySelector('.navbar-burger').addEventListener('click', function(e) {
     const navbarBurger = getCorrectElementFromEvent(e);
     navbarBurger.classList.toggle('is-active');
     document.querySelector(`#${navbarBurger.dataset.target}`).classList.toggle('is-active');
