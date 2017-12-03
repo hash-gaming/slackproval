@@ -1,53 +1,46 @@
-<%= render 'shared/notice' %>
-
-<div class="float-right page-actions-group">
-  <div class="btn-group" role="group">
+<div class="field is-grouped is-pulled-right">
+  <p class="control">
     <% if current_user.admin? %>
-      <%= link_to "Audit Log", audit_log_requests_path, class: "btn btn-outline-secondary"%>
+      <%= link_to "Audit Log", audit_log_requests_path, class: "button button is-outline"%>
     <% end %>
-    <%= link_to fa_icon('plus', text: 'New Request'), new_request_path, class: "btn btn-outline-primary" %>
-  </div>
+  </p>
+  <p class="control">
+    <%= link_to fa_icon('plus', text: 'New Request', class: "fa-fw"), new_request_path, class: "button is-outline is-primary" %>
+  </p>
 </div>
 
 <h2>Requests</h2>
 
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <%= link_to "New", requests_path(page: nil), class: "nav-link #{'active' if params[:filter].blank?}" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Approved", requests_path(filter: "approved", page: nil), class: "nav-link #{'active' if params[:filter] == 'approved'}" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Denied", requests_path(filter: "denied", page: nil), class: "nav-link #{'active' if params[:filter] == 'denied'}" %>
-  </li>
-</ul>
-
-
-<div class="row">
-  <div class="col">
-    <%= form_tag(requests_path, method: :get) do %>
-      <div class="input-group" style="margin: 16px 8px;">
-        <%= text_field_tag :query, params[:query].presence || '', placeholder: "Search for...", class: "form-control" %>
-        <span class="input-group-btn">
-          <% if params[:query] %>
-            <%= link_to fa_icon('times'), requests_path, class: "btn btn-outline-secondary" %>
-          <% end %>
-          <%= submit_tag 'Search', class: "btn btn-secondary" %>
-        </span>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-lg">
-  </div>
-  <div class="col">
-    <% if params[:filter].blank? %>
-      <div class="btn-group float-right" style="margin: 16px 8px;" role="group" aria-label="List Actions">
-        <%= link_to "Approve All", approve_all_requests_path, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success" %>
-        <%= link_to "Deny All", deny_all_requests_path, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
-      </div>
-    <% end %>
-  </div>
+<div class="tabs">
+  <ul>
+    <li class="<%='is-active' if params[:filter].blank? %>"><%= link_to "New", requests_path(page: nil) %></li>
+    <li class="<%= 'is-active' if params[:filter] == 'approved' %>"><%= link_to "Approved", requests_path(filter: "approved", page: nil) %></li>
+    <li class="<%= 'is-active' if params[:filter] == 'denied' %>"><%= link_to "Denied", requests_path(filter: "denied", page: nil) %></li>
+  </ul>
 </div>
+
+<% if params[:filter].blank? %>
+  <div class="is-pulled-left">
+    <%= form_tag(requests_path, method: :get) do %>
+      <div class="field has-addons is-pulled-right">
+        <div class="control">
+          <%= text_field_tag :query, params[:query].presence || '', placeholder: "Search for...", class: "input" %>
+        </div>
+        <div class="control">
+          <%= submit_tag 'Search', class: "button is-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field is-grouped is-pulled-right">
+    <p class="control">
+      <%= link_to fa_icon('check', text: "Approve All", class: "fa-fw"), approve_all_requests_path, data: { confirm: 'Are you sure?' }, class: "button is-outline is-success" %>
+    </p>
+    <p class="control">
+      <%= link_to fa_icon('times', text: "Deny All", class: "fa-fw"), deny_all_requests_path, data: { confirm: 'Are you sure?' }, class: "button is-outline is-danger" %>
+    </p>
+  </div>
+<% end %>
 
 <%= render 'table', requests: @requests %>

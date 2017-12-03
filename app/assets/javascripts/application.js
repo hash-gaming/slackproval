@@ -12,6 +12,28 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
-//= require bootstrap.bundle.min.js
 //= require_tree .
+
+function getCorrectElementFromEvent(e) {
+  if (e.target && e.target.matches('div.navbar-burger')) {
+    return e.target;
+  } else if (e.target && e.target.matches('div.navbar-burger > span')) {
+    return e.target.parentElement;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('.navbar-burger').addEventListener('click', function(e) {
+    const navbarBurger = getCorrectElementFromEvent(e);
+    navbarBurger.classList.toggle('is-active');
+    document.querySelector(`#${navbarBurger.dataset.target}`).classList.toggle('is-active');
+    e.stopPropagation();
+  });
+});
+
+document.addEventListener('click', function(e) {
+  if (e.target && e.target.matches('.notification > button.delete')) {
+    e.target.parentElement.classList.add('is-hidden');
+    e.stopPropagation();
+  }
+});

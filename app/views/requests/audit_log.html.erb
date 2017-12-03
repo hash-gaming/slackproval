@@ -1,18 +1,15 @@
-<%= render 'shared/notice' %>
-
-<%= link_to fa_icon('arrow-left', text: 'Back'), requests_path, class: "btn btn-outline-secondary float-right" %>
+<%= link_to fa_icon('arrow-left', text: 'Back', class: "fa-fw"), requests_path, class: "button is-outline is-pulled-right" %>
 <h2>Audit Log</h2>
 
-<table class="table">
-  <thead class="thead">
+<table class="table is-fullwidth">
+  <thead>
     <tr>
-      <th scope="col" style="border-top: none;">Request</th>
-      <th scope="col" style="border-top: none;">Changes</th>
-      <th scope="col" style="border-top: none;">Changed By</th>
-      <th scope="col" style="border-top: none;">Time</th>
+      <th>Request</th>
+      <th>Changes</th>
+      <th>Changed By</th>
+      <th>Time</th>
     </tr>
   </thead>
-
   <tbody>
     <% @audits.each do |audit| %>
       <tr>
@@ -25,4 +22,4 @@
   </tbody>
 </table>
 
-<%= paginate @audits, theme: 'twitter-bootstrap-4' %>
+<%= render 'shared/pagination', items: @audits %>

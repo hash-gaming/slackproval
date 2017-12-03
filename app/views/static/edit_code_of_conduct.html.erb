@@ -1,8 +1,12 @@
 <%= form_tag(update_code_of_conduct_path, method: :post)  do %>
   <%= text_area_tag :content, File.read("CODE_OF_CONDUCT.md"), id: "editor" %>
-  <div class="btn-group float-right" role="group">
-    <%= link_to 'Back', code_of_conduct_path, class: 'btn btn-outline-secondary' %>
-    <%= submit_tag 'Save', class: "btn btn-primary" %>
+   <div class="field is-grouped is-pulled-right">
+    <p class="control">
+      <%= link_to 'Back', code_of_conduct_path, class: 'button is-outline' %>
+    </p>
+    <p class="control">
+      <%= submit_tag 'Save', class: "button is-primary is-pulled-right" %>
+    </p>
   </div>
 <% end %>
 

@@ -1,13 +1,12 @@
-<table class="table">
-  <thead class="thead">
+<table class="table is-fullwidth">
+  <thead>
     <tr>
-      <th scope="col" style="border-top: none;">Email</th>
-      <th scope="col" style="border-top: none;">Reason</th>
-      <th scope="col" style="border-top: none;">IP</th>
+      <th>Email</th>
+      <th>Reason</th>
+      <th>IP</th>
       <th colspan="1" style="width: 1px; border-top: none;"></th>
     </tr>
   </thead>
-
   <tbody>
     <% requests.each do |request| %>
       <tr>
@@ -15,14 +14,20 @@
         <td><%= request.reason %></td>
         <td><code><%= request.ip %></code></td>
         <td>
-          <div class="btn-group" role="group">
+          <div class="field is-grouped is-pulled-right">
             <% unless params[:filter] == "approved"%>
-              <%= link_to fa_icon("check"), approve_request_path(request, filter: params[:filter]), method: :put, class: "btn btn-outline-success btn-sm"%>
+              <p class="control">
+                <%= link_to fa_icon("check"), approve_request_path(request, filter: params[:filter]), method: :put, class: "button is-outline is-success is-small"%>
+              </p>
               <% unless params[:filter] == "denied"%>
-                <%= link_to fa_icon("times"), deny_request_path(request, filter: params[:filter]), class: "btn btn-outline-danger btn-sm"%>
+                <p class="control">
+                  <%= link_to fa_icon("times"), deny_request_path(request, filter: params[:filter]), class: "button is-outline is-danger is-small"%>
+                </p>
               <% end %>
-            <% end%>
-            <%= link_to fa_icon("trash"), request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+            <p class="control">
+              <%= link_to fa_icon("trash"), request, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-outline is-small" %>
+            </p>
           </div>
         </td>
       </tr>
@@ -30,4 +35,4 @@
   </tbody>
 </table>
 
-<%= paginate requests, theme: 'twitter-bootstrap-4' %>
+<%= render 'shared/pagination', items: requests %>

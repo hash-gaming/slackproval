@@ -11,29 +11,33 @@
 * It is generally better to create a new file per style scope.
 *
 *= require_tree .
-*= require bootstrap.min.css
 *= require_self
 */
 
+@import 'bulma';
 @import "font-awesome";
 
-flex-container {
+.extra-margin-large {
+  margin: 1.5rem;
+}
+
+.flex-container {
   display: flex;
 }
 
-flex-row {
+.flex-row {
   flex-direction: row;
 }
 
-flex-column {
+.flex-column {
   flex-direction: column;
 }
 
-flex-item-static {
+.flex-item-static {
   flex: 0 1 auto;
 }
 
-flex-item-dynamic {
+.flex-item-dynamic {
   flex: 1 1 auto;
 }
 
@@ -74,4 +78,73 @@ footer {
     list-style: none;
     margin: 0 0 18px 0;
   }
+}
+
+.hero-modified-body {
+  padding-top: 0px;
+  margin-top: -100px;
+}
+
+.container {
+  padding-top: 24px;
+}
+
+h2 {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+// Overwrite Bulma's stupid h tag rules
+h1 {
+  word-break: break-word;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+}
+
+h2 {
+  word-break: break-word;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+h3 {
+  word-break: break-word;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+h4 {
+  word-break: break-word;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+h5 {
+  word-break: break-word;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+h6 {
+  word-break: break-word;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
 }

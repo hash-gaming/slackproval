@@ -1,7 +1,7 @@
 class StaticController < ApplicationController
   before_action :authentication_check, only: [:edit_code_of_conduct]
   def home
-
+    render layout: "public"
   end
 
   def code_of_conduct
