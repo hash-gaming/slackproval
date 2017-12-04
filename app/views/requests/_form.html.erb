@@ -20,6 +20,9 @@
       <% end %>
       <%= form.text_area :reason, id: :request_reason, class: "textarea" %>
     </div>
+    <% if ENV["USE_RECAPTCHA"] == 'true' %>
+      <%= recaptcha_tags %>
+    <% end %>
     <% if ENV["CODE_OF_CONDUCT_REQUIRED"] == "true"%>
       <div class="field">
         <div class="control">
