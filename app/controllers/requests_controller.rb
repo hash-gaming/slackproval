@@ -42,7 +42,7 @@ class RequestsController < ApplicationController
     @request.ip = request.remote_ip
 
     respond_to do |format|
-      if @request.save
+      if (ENV.fetch('USE_RECAPTCHA', 'false') == 'false' || verify_recaptcha(model: @request)) && @request.save
         format.html { redirect_to root_path, notice: 'Request submitted for approval' }
       else
         format.html { render :new , layout: "public"}

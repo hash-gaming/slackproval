@@ -11,12 +11,13 @@ gem 'kaminari'
 gem 'paranoia'
 gem 'pg'
 gem 'puma'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'redcarpet'
 gem 'sass-rails'
 gem 'sorcery'
+gem 'simplemde-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'redcarpet'
-gem 'simplemde-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -43,6 +43,13 @@ Environment Variables:
 - `ADMIN_USERNAME` - Username to get to the user sign up page (default `admin`)
 - `REQUIRE_REASON` - Whether or not your requesting users need to provide a reason for joining (default: true)
 - `CODE_OF_CONDUCT_REQUIRED` - Whether or not you mandate the requesting user agrees to a code of conduct (set to `true` for yes)
+- `USE_RECAPTCHA` - Whether to use Recaptcha v2 in the request flow to prevent bots; defaults to false.
+- `RECAPTCHA_SITE_KEY` - Required only if `USE_RECAPTCHA` is set to true
+- `RECAPTCHA_SECRET_KEY` - Required only if `USE_RECAPTCHA` is set to true
+
+*Notes*
+
+- If `USE_RECAPTCHA` is set to true then `RECAPTCHA_SITE_KEY` and `RECAPTCHA_SECRET_KEY` also need to be set. You can set up a Recaptcha project [here](https://www.google.com/recaptcha/).
 
 ## How to use
 ### First time launching
