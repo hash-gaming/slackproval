@@ -1,3 +1,5 @@
+require 'slack'
+
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy, :approve, :deny]
   before_action :authentication_check, only: [:show, :index, :update, :edit, :destroy, :approve, :deny, :approved, :denied]
