@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.navbar-burger').addEventListener('click', function(e) {
     const navbarBurger = getCorrectElementFromEvent(e);
     navbarBurger.classList.toggle('is-active');
-    document.querySelector("#" + navbarBurger.dataset.target).classList.toggle('is-active');
+    document.querySelector('#' + navbarBurger.dataset.target).classList.toggle('is-active');
     e.stopPropagation();
   });
 });
