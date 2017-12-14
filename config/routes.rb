@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new', as: :signup
 
   get 'code_of_conduct' => 'static#code_of_conduct', as: :code_of_conduct
-  get 'edit_code_of_conduct' => 'static#edit_code_of_conduct', as: :edit_code_of_conduct
-  post 'update_code_of_conduct' => 'static#update_code_of_conduct', as: :update_code_of_conduct
 
   root to: 'static#home'
 end

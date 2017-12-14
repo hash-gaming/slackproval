@@ -190,7 +190,6 @@ GEM
     selenium-webdriver (3.7.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
-    simplemde-rails (1.11.2)
     sorcery (0.11.0)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
@@ -255,7 +254,6 @@ DEPENDENCIES
   redcarpet
   sass-rails
   selenium-webdriver
-  simplemde-rails
   sorcery
   spring
   spring-watcher-listen
