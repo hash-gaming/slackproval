@@ -15,7 +15,6 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'redcarpet'
 gem 'sass-rails'
 gem 'sorcery'
-gem 'simplemde-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 

@@ -43,6 +43,7 @@ Environment Variables:
 - `ADMIN_USERNAME` - Username to get to the user sign up page (default `admin`)
 - `REQUIRE_REASON` - Whether or not your requesting users need to provide a reason for joining (default: true)
 - `CODE_OF_CONDUCT_REQUIRED` - Whether or not you mandate the requesting user agrees to a code of conduct (set to `true` for yes)
+- `CODE_OF_CONDUCT_LINK` - Link to a markdown file containing your code of conduct. (EX: https://raw.githubusercontent.com/hash-gaming/code-of-conduct/master/code-of-conduct.md)
 - `USE_RECAPTCHA` - Whether to use Recaptcha v2 in the request flow to prevent bots; defaults to false.
 - `RECAPTCHA_SITE_KEY` - Required only if `USE_RECAPTCHA` is set to true
 - `RECAPTCHA_SECRET_KEY` - Required only if `USE_RECAPTCHA` is set to true

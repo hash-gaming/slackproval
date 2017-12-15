@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class StaticController < ApplicationController
   before_action :authentication_check, only: [:edit_code_of_conduct]
   def home
@@ -5,15 +7,19 @@ class StaticController < ApplicationController
   end
 
   def code_of_conduct
-    File.open("CODE_OF_CONDUCT.md", "w") {} unless File.exists?('CODE_OF_CONDUCT.md')
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-  end
-
-  def edit_code_of_conduct
-  end
-
-  def update_code_of_conduct
-    File.open("CODE_OF_CONDUCT.md", "w") { |file| file.write(params[:content]) }
-    redirect_to code_of_conduct_path
+    url = URI.parse(ENV.fetch("CODE_OF_CONDUCT_LINK", ""))
+    @code_of_conduct = ENV.fetch("CODE_OF_CONDUCT_LINK", "").blank? ? "" : open(url) { |io| data = io.read }
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true,
+                                                                 tables: true,
+                                                                 fenced_code_blocks: true,
+                                                                 strikethrough: true,
+                                                                 superscript: true,
+                                                                 underline: true,
+                                                                 highlight: true,
+                                                                 quote: true,
+                                                                 footnotes: true,
+                                                                 with_toc_data: true,
+                                                                 prettify: true,
+                                                                 lax_spacing: true)
   end
 end
