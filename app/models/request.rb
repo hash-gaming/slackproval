@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: requests
+#
+#  id              :bigint           not null, primary key
+#  email           :string
+#  reason          :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  status          :string           default("pending")
+#  deleted_at      :datetime
+#  ip              :string
+#  code_of_conduct :boolean          default(FALSE)
+#
+
 class Request < ApplicationRecord
   audited only: :status
   acts_as_paranoid
@@ -14,7 +29,7 @@ class Request < ApplicationRecord
 
   def self.search(query)
     if query
-      where('email LIKE ?', "%#{query}%")
+      where('email LIKE :query OR reason LIKE :query', { query: "%#{query.strip}%" })
     else
       all
     end

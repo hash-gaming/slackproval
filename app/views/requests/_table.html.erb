@@ -3,6 +3,7 @@
     <tr>
       <th>Email</th>
       <th>Reason</th>
+      <th style="width: 14%;">Time</th>
       <th>IP</th>
       <th colspan="1" style="width: 1px; border-top: none;"></th>
     </tr>
@@ -12,6 +13,7 @@
       <tr>
         <td><%= request.email %></td>
         <td><%= request.reason %></td>
+        <td><%= time_ago(request.created_at.to_time.to_i) %></td>
         <td><code><%= request.ip %></code></td>
         <td>
           <div class="field is-grouped is-pulled-right">
