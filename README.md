@@ -47,6 +47,8 @@ Environment Variables:
 - `USE_RECAPTCHA` - Whether to use Recaptcha v2 in the request flow to prevent bots; defaults to false.
 - `RECAPTCHA_SITE_KEY` - Required only if `USE_RECAPTCHA` is set to true
 - `RECAPTCHA_SECRET_KEY` - Required only if `USE_RECAPTCHA` is set to true
+- `AGE_MUST_BE_OVER_REQUIRED` - Whether or not you mandate the requesting user is over a certain age (set to `true` for yes)
+- `ADULT_AGE` - Configure the age for the `AGE_MUST_BE_OVER_REQUIRED` check (default `18`)
 
 *Notes*
 

@@ -2,15 +2,16 @@
 #
 # Table name: requests
 #
-#  id              :bigint           not null, primary key
-#  email           :string
-#  reason          :text
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  status          :string           default("pending")
-#  deleted_at      :datetime
-#  ip              :string
-#  code_of_conduct :boolean          default(FALSE)
+#  id               :bigint           not null, primary key
+#  email            :string
+#  reason           :text
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  status           :string           default("pending")
+#  deleted_at       :datetime
+#  ip               :string
+#  code_of_conduct  :boolean          default(FALSE)
+#  age_must_be_over :boolean          default(FALSE)
 #
 
 class Request < ApplicationRecord
@@ -21,6 +22,7 @@ class Request < ApplicationRecord
   validate :reason_required
   validate :ban_check
   validate :code_of_conduct_check
+  validate :age_must_be_over_check
   validates :status, inclusion: { in: ['pending', 'approved', 'denied', 'deleted'] }
 
   scope :approved, -> { where status: 'approved' }
@@ -63,6 +65,12 @@ class Request < ApplicationRecord
   def code_of_conduct_check
     if ENV["CODE_OF_CONDUCT_REQUIRED"] == 'true' && code_of_conduct == false
       errors.add(:code_of_conduct, "must be agreed to")
+    end
+  end
+
+  def age_must_be_over_check
+    if ENV["AGE_MUST_BE_OVER_REQUIRED"] == 'true' && age_must_be_over == false
+      errors.add(:age_must_be_over, "#{ENV.fetch('ADULT_AGE', 18)}")
     end
   end
 end
