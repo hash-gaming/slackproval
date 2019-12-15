@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (3.0.3)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
     arel (8.0.0)
     audited (4.5.0)
       activerecord (>= 4.0, < 5.2)
@@ -234,6 +237,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   audited
   bulma-rails
   byebug

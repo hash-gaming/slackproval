@@ -19,20 +19,21 @@
   </ul>
 </div>
 
-<% if params[:filter].blank? %>
-  <div class="is-pulled-left">
-    <%= form_tag(requests_path, method: :get) do %>
-      <div class="field has-addons is-pulled-right">
-        <div class="control">
-          <%= text_field_tag :query, params[:query].presence || '', placeholder: "Search for...", class: "input" %>
-        </div>
-        <div class="control">
-          <%= submit_tag 'Search', class: "button is-info" %>
-        </div>
+<div class="is-pulled-left">
+  <%= form_tag(requests_path, method: :get) do %>
+    <div class="field has-addons is-pulled-right">
+      <div class="control">
+        <%= hidden_field_tag :filter, params[:filter] %>
+        <%= text_field_tag :query, params[:query].presence || '', placeholder: "Search for...", class: "input" %>
       </div>
-    <% end %>
-  </div>
+      <div class="control">
+        <%= submit_tag 'Search', class: "button is-info" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
+<% if params[:filter].blank? %>
   <div class="field is-grouped is-pulled-right">
     <p class="control">
       <%= link_to fa_icon('check', text: "Approve All", class: "fa-fw"), approve_all_requests_path, data: { confirm: 'Are you sure?' }, class: "button is-outline is-success" %>
