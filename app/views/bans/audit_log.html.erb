@@ -17,7 +17,7 @@
         <td><%= Ban.with_deleted.find(audit.auditable_id).ban_value %></td>
         <td><%= Ban.with_deleted.find(audit.auditable_id).ban_type %></td>
         <td><code><%= audit.audited_changes %></code></td>
-        <td><%= User.with_deleted.find(audit.user_id).email %></td>
+        <td><%= User.with_deleted.find_by_id(audit.user_id).try(:email).to_s %></td>
         <td><%= audit.created_at.to_formatted_s(:long)%></td>
       </tr>
     <% end %>
