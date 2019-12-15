@@ -33,6 +33,16 @@
         </div>
       </div>
     <% end %>
+    <% if ENV["AGE_MUST_BE_OVER_REQUIRED"] == "true"%>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <%= form.check_box :age_must_be_over, class: "form-check-input" %>
+            I am over the age of <%= ENV.fetch('ADULT_AGE', 18) %> years
+          </label>
+        </div>
+      </div>
+    <% end %>
     <%= form.submit 'Submit', class: "button is-primary is-pulled-right" %>
   <% end %>
 </div>
