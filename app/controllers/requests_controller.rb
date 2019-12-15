@@ -34,7 +34,7 @@ class RequestsController < ApplicationController
   end
 
   def audit_log
-    @audits = Audited::Audit.where(auditable_type: "Request").page(params[:page])
+    @audits = Audited::Audit.where(auditable_type: "Request").order('created_at DESC').page(params[:page])
   end
 
   # POST /requests
