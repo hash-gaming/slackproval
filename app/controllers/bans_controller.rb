@@ -24,7 +24,7 @@ class BansController < ApplicationController
   end
 
   def audit_log
-    @audits = Audited::Audit.where(auditable_type: "Ban").page(params[:page])
+    @audits = Audited::Audit.where(auditable_type: "Ban").order('created_at DESC').page(params[:page])
   end
 
   # POST /bans
