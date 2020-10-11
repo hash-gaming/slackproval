@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 ruby "2.4.9"
 
-gem 'rails', '~> 5.1.7'
+gem 'rails', '~> 5.2.4'
 
 gem 'annotate'
 gem 'audited'
+gem 'bootsnap'
 gem 'bulma-rails'
 gem 'font-awesome-rails'
 gem 'http'
