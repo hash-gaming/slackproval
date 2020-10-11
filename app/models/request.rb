@@ -70,7 +70,7 @@ class Request < ApplicationRecord
 
   def age_must_be_over_check
     if ENV["AGE_MUST_BE_OVER_REQUIRED"] == 'true' && age_must_be_over == false
-      errors.add(:age_must_be_over, "#{ENV.fetch('ADULT_AGE', 18)}")
+      errors.add(:age_must_be_over, "#{ENV.fetch('AGE', 18)}")
     end
   end
 end
