@@ -11,8 +11,9 @@ Other slack auto-invite systems can cause issues by automatically allowing scamm
 - Approve or deny applicants
 - Blacklist domains/emails/IPs from being able to request access
 - Configurable required reason for joining
-- Customizable name and logo
+- Configurable age requirement agreement
 - Configurable Code of Conduct agreement
+- Customizable name and logo
 - Anti bot measures
 - Audit log for requests
 
@@ -48,7 +49,7 @@ Environment Variables:
 - `RECAPTCHA_SITE_KEY` - Required only if `USE_RECAPTCHA` is set to true
 - `RECAPTCHA_SECRET_KEY` - Required only if `USE_RECAPTCHA` is set to true
 - `AGE_MUST_BE_OVER_REQUIRED` - Whether or not you mandate the requesting user is over a certain age (set to `true` for yes)
-- `ADULT_AGE` - Configure the age for the `AGE_MUST_BE_OVER_REQUIRED` check (default `18`)
+- `AGE` - Configure the age for the `AGE_MUST_BE_OVER_REQUIRED` check (default `18`)
 
 *Notes*
 
