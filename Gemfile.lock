@@ -215,7 +215,7 @@ GEM
       ffi (~> 1.0)
     recaptcha (5.5.0)
       json
-    redcarpet (3.5.0)
+    redcarpet (3.5.1)
     regexp_parser (1.8.2)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
